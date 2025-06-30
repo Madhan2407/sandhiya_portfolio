@@ -11,6 +11,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
 </head>
 <body>
     <!-- Navigation -->
@@ -121,10 +122,10 @@
                             Get In Touch
                             <i data-lucide="mail" class="cta-icon"></i>
                         </button>
-                        <button class="cta-secondary">
-                            Download Resume
-                            <i data-lucide="download" class="cta-icon"></i>
-                        </button>
+                        <a href="https://drive.google.com/file/d/10tyN0Y6Zk8voot9z-x50fIBApImwKPK7/view?usp=share_link" target="_blank" rel="noopener noreferrer" class="cta-secondary">
+                            Open Resume
+                            <i data-lucide="external-link" class="cta-icon"></i>
+                        </a>
                     </div>
                 </div>
             </div>
@@ -587,8 +588,18 @@
                                     </div>
                                 </a>
 
-                                <div class="contact-item-link">
+                                <a href="https://wa.me/919150523657" target="_blank" rel="noopener noreferrer" class="contact-item-link">
                                     <div class="contact-item-icon contact-3">
+                                        <i data-lucide="message-circle" class="icon"></i>
+                                    </div>
+                                    <div class="contact-item-info">
+                                        <p class="contact-label">WhatsApp</p>
+                                        <p class="contact-value">+91 9150523657</p>
+                                    </div>
+                                </a>
+
+                                <div class="contact-item-link">
+                                    <div class="contact-item-icon contact-4">
                                         <i data-lucide="map-pin" class="icon"></i>
                                     </div>
                                     <div class="contact-item-info">
@@ -640,16 +651,25 @@
                                 <textarea id="message" name="message" required rows="6" class="form-textarea" placeholder="Tell me about your project or inquiry..."></textarea>
                             </div>
                             
-                            <button type="submit" id="submit-btn" class="form-submit">
-                                <span class="submit-text">
-                                    <i data-lucide="send" class="submit-icon"></i>
-                                    Send Message
-                                </span>
-                                <span class="submit-loading" style="display: none;">
-                                    <div class="loading-spinner"></div>
-                                    Sending...
-                                </span>
-                            </button>
+                            <div class="form-actions">
+                                <button type="submit" id="submit-btn" class="form-submit">
+                                    <span class="submit-text">
+                                        <i data-lucide="send" class="submit-icon"></i>
+                                        Send Message
+                                    </span>
+                                    <span class="submit-loading" style="display: none;">
+                                        <div class="loading-spinner"></div>
+                                        Sending...
+                                    </span>
+                                </button>
+                                
+                                <button type="button" id="whatsapp-btn" class="form-whatsapp">
+                                    <span class="whatsapp-text">
+                                        <i data-lucide="message-circle" class="whatsapp-icon"></i>
+                                        Send via WhatsApp
+                                    </span>
+                                </button>
+                            </div>
                         </form>
                     </div>
                 </div>
@@ -665,6 +685,30 @@
             </p>
         </div>
     </footer>
+
+    <!-- Success Modal -->
+    <div id="success-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <i data-lucide="check-circle" class="modal-icon success"></i>
+                <h3 class="modal-title">Message Sent Successfully!</h3>
+            </div>
+            <p class="modal-text">Thank you for reaching out! I'll get back to you as soon as possible.</p>
+            <button id="close-modal" class="modal-btn">Close</button>
+        </div>
+    </div>
+
+    <!-- Error Modal -->
+    <div id="error-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <i data-lucide="x-circle" class="modal-icon error"></i>
+                <h3 class="modal-title">Message Failed to Send</h3>
+            </div>
+            <p class="modal-text">Sorry, there was an error sending your message. Please try again or contact me directly.</p>
+            <button id="close-error-modal" class="modal-btn">Close</button>
+        </div>
+    </div>
 
     <script src="script.js"></script>
 </body>
